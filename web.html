@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúc 8/3</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .love-card {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f6a8b0, #f4c7dc);
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    .border-flower {
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0;
+      animation: borderFlowerIn 0.8s ease-out forwards;
+    }
+
+    @keyframes borderFlowerIn {
+      0% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.3) rotate(180deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(360deg);
+      }
+    }
+
+    .love-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 24px;
+    }
+
+    .question {
+      font-size: 20px;
+      font-weight: 700;
+      color: #c0286a;
+      margin-bottom: 28px;
+      letter-spacing: 0.3px;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .buttons-zone {
+      position: relative;
+      width: 100%;
+      height: 110px;
+    }
+
+    .btn {
+      position: absolute;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 24px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      white-space: nowrap;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    #yesBtn {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 50px;
+      background: linear-gradient(180deg, #ff7e99, #ff5b7d);
+      color: white;
+    }
+
+    #noBtn {
+      left: 60%;
+      top: 8px;
+      background: #f7e7ea;
+      color: #8a4a58;
+      border: 1px solid #e4c8cf;
+    }
+
+    .message {
+      display: none;
+      font-size: 17px;
+      font-weight: 600;
+      color: #b0245a;
+      text-align: center;
+      line-height: 1.6;
+      margin-top: 10px;
+      padding: 0 10px;
+    }
+
+    .reveal-img {
+      display: none;
+      width: 230px;
+      height: 210px;
+      max-width: 80%;
+      margin-top: 18px;
+      object-fit: cover;
+      clip-path: url(#heartClip);
+      filter: drop-shadow(0 6px 14px rgba(192, 40, 106, 0.4));
+      animation: heartReveal 1s cubic-bezier(0.17, 0.67, 0.35, 1.3) forwards;
+    }
+
+    @keyframes heartReveal {
+      0% {
+        opacity: 0;
+        transform: scale(0) rotate(-20deg);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.15) rotate(5deg);
+      }
+      70% {
+        transform: scale(0.95) rotate(-2deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .flower {
+      position: fixed;
+      font-size: 24px;
+      pointer-events: none;
+      z-index: 9999;
+      animation: flowerBurst 1.8s ease-out forwards;
+    }
+
+    @keyframes flowerBurst {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.5) rotate(0deg);
+      }
+      50% {
+        opacity: 1;
+        transform: translate(var(--tx), var(--ty)) scale(1.2) rotate(180deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx), calc(var(--ty) + 120px)) scale(0.6) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .question {
+        font-size: 17px;
+      }
+      .btn {
+        font-size: 13px;
+        padding: 10px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <clipPath id="heartClip" clipPathUnits="objectBoundingBox">
+        <path d="M0.5,0.92 C0.28,0.75 0,0.55 0,0.32 C0,0.12 0.15,0 0.3,0 C0.38,0 0.45,0.05 0.5,0.15 C0.55,0.05 0.62,0 0.7,0 C0.85,0 1,0.12 1,0.32 C1,0.55 0.72,0.75 0.5,0.92Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div class="love-card" id="loveCard">
+    <div class="love-inner">
+      <div class="question">Chúc Nganan xênh đẹp 8/3 zui zẻ và ngày càng giỏi giang nhooo 🌸</div>
+
+      <img id="mainImg" src="nganan_2.jpg" alt="Nganan" style="width: 200px; max-width: 80%; border-radius: 14px; margin-bottom: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.13); object-fit: cover;" />
+
+      <div class="buttons-zone" id="buttonsZone">
+        <button class="btn" id="yesBtn">Hihihi cẻm ơn gấc nhèo 💗</button>
+        <button class="btn" id="noBtn">Nố nồ nô 💔</button>
+      </div>
+
+      <div class="message" id="message">toi bic m tốt bụng, giỏi giang, chăm chỉ, siu năng suất .... cho nên là hãy tự tin lên nhé &lt;3 &lt;3</div>
+      <img src="nganan.jpg" alt="Nganan" class="reveal-img" id="revealImg" />
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const buttonsZone = document.getElementById("buttonsZone");
+    const message = document.getElementById("message");
+
+    function moveNoButton() {
+      const zoneWidth = buttonsZone.clientWidth;
+      const zoneHeight = buttonsZone.clientHeight;
+
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const maxX = zoneWidth - btnWidth - 10;
+      const maxY = zoneHeight - btnHeight - 10;
+
+      const randomX = Math.max(10, Math.floor(Math.random() * maxX));
+      const randomY = Math.max(0, Math.floor(Math.random() * maxY));
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("click", moveNoButton);
+
+    const flowers = ['🌸', '🌺', '🌷', '🌹', '💐', '🌻', '💮', '🏵️', '💗', '✨'];
+    const borderFlowers = ['🌸', '🌺', '🌷', '🌹', '💮', '🏵️', '💗', '✨', '🌻'];
+
+    function addBorderFlowers() {
+      const card = document.getElementById('loveCard');
+      card.style.overflow = 'visible';
+      const w = card.offsetWidth;
+      const h = card.offsetHeight;
+      const flowerSize = 22;
+      const half = flowerSize / 2;
+      const positions = [];
+
+      // top edge - centered on border
+      const topCount = Math.floor(w / (flowerSize + 4));
+      const topSpacing = w / topCount;
+      for (let i = 0; i < topCount; i++) {
+        positions.push({ left: i * topSpacing + topSpacing / 2 - half, top: -half });
+      }
+      // bottom edge
+      for (let i = 0; i < topCount; i++) {
+        positions.push({ left: i * topSpacing + topSpacing / 2 - half, top: h - half });
+      }
+      // left edge (exclude corners)
+      const sideCount = Math.floor(h / (flowerSize + 4)) - 1;
+      const sideSpacing = h / (sideCount + 1);
+      for (let i = 1; i <= sideCount; i++) {
+        positions.push({ left: -half, top: i * sideSpacing - half });
+      }
+      // right edge (exclude corners)
+      for (let i = 1; i <= sideCount; i++) {
+        positions.push({ left: w - half, top: i * sideSpacing - half });
+      }
+
+      positions.forEach((pos, i) => {
+        const el = document.createElement('span');
+        el.className = 'border-flower';
+        el.textContent = borderFlowers[Math.floor(Math.random() * borderFlowers.length)];
+        el.style.left = pos.left + 'px';
+        el.style.top = pos.top + 'px';
+        el.style.fontSize = (16 + Math.random() * 10) + 'px';
+        el.style.animationDelay = (i * 0.04) + 's';
+        card.appendChild(el);
+      });
+    }
+
+    function launchFlowers(x, y) {
+      for (let i = 0; i < 40; i++) {
+        const el = document.createElement('span');
+        el.className = 'flower';
+        el.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+        el.style.fontSize = (16 + Math.random() * 20) + 'px';
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 80 + Math.random() * 220;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance - 100;
+
+        el.style.setProperty('--tx', tx + 'px');
+        el.style.setProperty('--ty', ty + 'px');
+        el.style.animationDuration = (1.2 + Math.random() * 1) + 's';
+
+        document.body.appendChild(el);
+        el.addEventListener('animationend', () => el.remove());
+      }
+    }
+
+    yesBtn.addEventListener("click", (e) => {
+      const rect = yesBtn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      launchFlowers(cx, cy);
+      setTimeout(() => launchFlowers(cx, cy), 300);
+      setTimeout(() => {
+        buttonsZone.style.display = "none";
+        document.getElementById('mainImg').style.display = 'none';
+        message.style.display = "block";
+      }, 600);
+      setTimeout(() => {
+        document.getElementById('revealImg').style.display = 'block';
+        // Burst flowers from center of card
+        const cardRect = document.getElementById('loveCard').getBoundingClientRect();
+        const cardCx = cardRect.left + cardRect.width / 2;
+        const cardCy = cardRect.top + cardRect.height / 2;
+        launchFlowers(cardCx, cardCy);
+        setTimeout(() => launchFlowers(cardCx, cardCy), 200);
+      }, 1000);
+      // Border flowers appear after everything settles
+      setTimeout(() => {
+        addBorderFlowers();
+      }, 1800);
+    });
+  </script>
+</body>
+</html>
